@@ -189,6 +189,10 @@ This code manage the many-to-[one|many] association field popup
             var url  = element.attr('action');
             var type = element.attr('method');
         } else if (this.nodeName == 'A') {
+            // dru1 fixes the tabs problem (no deep link ajax call required here, if a hashtag is in the url)
+            if (element.attr('href').indexOf("#") != -1) {
+                return;
+            }
             var url  = element.attr('href');
             var type = 'GET';
         } else {
